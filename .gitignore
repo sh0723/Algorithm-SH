@@ -1,0 +1,10 @@
+cmake-build-*/
+build/
+.idea/
+0000_template
+src/*
+!src/
+!src/**/
+!src/**/*.cpp
+*.out
+.DS_Store
