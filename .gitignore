@@ -10,6 +10,6 @@ src/*
 *.exe
 *.bin
 
-# Local C++ executables built in the project root
-/dopa_string
+# Local C++ executable built in the project root
+/exc
 .DS_Store
