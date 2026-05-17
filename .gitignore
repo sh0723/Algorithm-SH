@@ -7,4 +7,9 @@ src/*
 !src/**/
 !src/**/*.cpp
 *.out
+*.exe
+*.bin
+
+# Local C++ executables built in the project root
+/dopa_string
 .DS_Store
