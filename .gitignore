@@ -11,5 +11,5 @@ src/*
 *.bin
 
 # Local C++ executable built in the project root
-*/exc
+exc
 .DS_Store
