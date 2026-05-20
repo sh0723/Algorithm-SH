@@ -1,0 +1,44 @@
+name: C++ Syntax Check
+
+on:
+  pull_request:
+    paths:
+      - "src/**/*.cpp"
+      - ".github/workflows/cpp-syntax.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**/*.cpp"
+      - ".github/workflows/cpp-syntax.yml"
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check C++ source files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMRT "origin/${{ github.base_ref }}...HEAD" -- "src/**/*.cpp" | sort)
+          else
+            mapfile -t files < <(find src -type f -name "*.cpp" | sort)
+          fi
+
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No C++ files found."
+            exit 0
+          fi
+
+          for file in "${files[@]}"; do
+            echo "Checking ${file}"
+            g++ -std=c++17 -Wall -Wextra -pedantic -fsyntax-only "${file}"
+          done
