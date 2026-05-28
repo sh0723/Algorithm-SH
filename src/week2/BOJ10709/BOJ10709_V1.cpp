@@ -33,13 +33,8 @@ int main() {
                     sky[i][j] = time;
                 }
             } else {
-                if (time != -1) {
-                    time = 0;
-                    sky[i][j] = time;
-                } else {
-                    time++;
-                    sky[i][j] = time;
-                }
+                time = 0;
+                sky[i][j] = time;
             }
         }
         time = -1;
