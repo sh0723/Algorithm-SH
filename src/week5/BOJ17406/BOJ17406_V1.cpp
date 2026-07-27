@@ -7,8 +7,8 @@ int ret = INT_MAX;
 
 void run_rotate(int y, int x, int n){
     int temp1[101][101];
+    memcpy(temp1, A, sizeof(A));
     for (int i=1; i<=n; i++) {
-        memcpy(temp1, A, sizeof(A));
         int top = y-i;
         int bot = y+i;
         int left = x-i;
@@ -48,8 +48,8 @@ void get_min_val() {
 void solve(vector<int> order) {
     int temp1[101][101];
     memcpy(temp1, A, sizeof(A));
-    for (int i=0; i<order.size(); i++) {
-        run_rotate(rotate_input[order[i]][0], rotate_input[order[i]][1],rotate_input[order[i]][2]);
+    for (int idx : order) {
+        run_rotate(rotate_input[idx][0], rotate_input[idx][1], rotate_input[idx][2]);
     }
     get_min_val();
     memcpy(A, temp1, sizeof(A));
