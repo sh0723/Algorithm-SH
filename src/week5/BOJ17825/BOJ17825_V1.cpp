@@ -18,38 +18,38 @@ int int_map[33] = {
     32,34,36,38,40,
     0
 };
-vector<vector<int>> link(33, vector<int>());
+vector<vector<int>> board(33, vector<int>());
 void initialization() {
     for (int i=0; i<5; i++) {
-        link[i].push_back(i+1);
+        board[i].push_back(i+1);
     }
-    link[5].push_back(6);
-    link[5].push_back(11);
+    board[5].push_back(6);
+    board[5].push_back(11);
     for (int i=6; i<10; i++) {
-        link[i].push_back(i+1);
+        board[i].push_back(i+1);
     }
-    link[11].push_back(12);
-    link[12].push_back(13);
-    link[13].push_back(24);
-    link[10].push_back(16);
-    link[14].push_back(15);
-    link[15].push_back(24);
-    link[10].push_back(14);
+    board[11].push_back(12);
+    board[12].push_back(13);
+    board[13].push_back(24);
+    board[10].push_back(16);
+    board[14].push_back(15);
+    board[15].push_back(24);
+    board[10].push_back(14);
     for (int i=16; i<20; i++) {
-        link[i].push_back(i+1);
+        board[i].push_back(i+1);
     }
     for (int i=21; i<24; i++) {
-        link[i].push_back(i+1);
+        board[i].push_back(i+1);
     }
-    link[24].push_back(25);
-    link[25].push_back(26);
-    link[26].push_back(31);
+    board[24].push_back(25);
+    board[25].push_back(26);
+    board[26].push_back(31);
 
-    link[20].push_back(27);
-    link[20].push_back(21);
+    board[20].push_back(27);
+    board[20].push_back(21);
 
     for (int i=27; i<=31; i++) {
-        link[i].push_back(i+1);
+        board[i].push_back(i+1);
     }
 }
 
@@ -57,17 +57,17 @@ bool can_go(int horse_index, int cnt) {
     int st = ret[horse_index].index;
     int curr = st;
     if (st == 5 || st == 10 || st == 20) {
-        curr = link[curr][1];
+        curr = board[curr][1];
         for (int i=1; i<cnt; i++) {
             if (curr == 32) break;
-            curr = link[curr][0];
+            curr = board[curr][0];
         }
     } else if (st == 32) {
         return false;
     } else {
         for (int i=0; i<cnt; i++) {
             if (curr == 32) break;
-            curr = link[curr][0];
+            curr = board[curr][0];
         }
     }
 
@@ -83,15 +83,15 @@ void go(int horse_index, int cnt) {
     int st = ret[horse_index].index;
     int curr = st;
     if (st == 5 || st == 10 || st == 20) {
-        curr = link[curr][1];
+        curr = board[curr][1];
         for (int i=1; i<cnt; i++) {
             if (curr == 32) break;
-            curr = link[curr][0];
+            curr = board[curr][0];
         }
     } else {
         for (int i=0; i<cnt; i++) {
             if (curr == 32) break;
-            curr = link[curr][0];
+            curr = board[curr][0];
         }
     }
     ret[horse_index].index = curr;
