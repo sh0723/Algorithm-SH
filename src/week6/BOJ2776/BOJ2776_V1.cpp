@@ -28,7 +28,7 @@ int main() {
     }
 
     for (int i=0; i<T; i++) {
-        for (int j=0; j<ret[i].size(); j++) {
+        for (size_t j=0; j<ret[i].size(); j++) {
             cout << ret[i][j] << '\n';
         }
     }
