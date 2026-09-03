@@ -2,13 +2,14 @@
 using namespace std;
 int N,M;
 vector<long long int> inp;
-bool check(int num) {
-    int cnt = 0, ret = 0;
+bool check(long long int num) {
+    long long int cnt = 0;
     for (int i=0; i<N; i++) {
         cnt += inp[i]/num;
+        if (cnt >= M) return true;
     }
 
-    return cnt >= M;
+    return false;
 }
 int main() {
 
@@ -18,17 +19,17 @@ int main() {
 
 
     cin >> N >> M;
-    long long int low=1, high=LONG_MAX,mid;
+    long long int low=1, high=0,mid;
     long long int sum=0;
     for (int i=0; i<N; i++) {
         long long int num;
         cin >> num;
         inp.push_back(num);
         sum += num;
-        high = min(high, num);
+        high = max(high, num);
     }
 
-    int ret=1;
+    long long int ret=0;
     while(low <= high) {
         mid = (low + high) / 2;
         if (check(mid)) {
@@ -39,7 +40,7 @@ int main() {
         }
     }
 
-    int result = sum - ret * M;
+    long long int result = sum - ret * M;
     cout << result << '\n';
     return 0;
 }
