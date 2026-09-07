@@ -51,7 +51,6 @@ int main() {
 
     long long int cnt = N-before;
 
-    int ret = 0;
     for (int i=0; i<M; i++) {
         if (finishTime % available[i] == 0) {
             cnt--;
