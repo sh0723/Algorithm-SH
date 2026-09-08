@@ -7,7 +7,6 @@ int dy[4] = {0,0,1,-1};
 int dx[4] = {1,-1,0,0};
 int cnt;
 void dfs(int y, int x) {
-    int ret = 0;
     for (int i=0; i<4; i++) {
         int ny = y + dy[i];
         int nx = x + dx[i];
@@ -51,7 +50,7 @@ int main() {
 
     cout << comp.size() << '\n';
     sort(comp.begin(), comp.end());
-    for (int i=0; i<comp.size(); i++) {
+    for (size_t i=0; i<comp.size(); i++) {
         cout << comp[i] << '\n';
     }
 
