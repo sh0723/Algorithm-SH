@@ -34,11 +34,14 @@ int main() {
         }
     }
 
+    bool first = true;
     while(!stk.empty()) {
-        cout << stk.top() << " ";
-
+        if (!first) cout << ' ';
+        cout << stk.top();
+        first = false;
         stk.pop();
     }
+    cout << '\n';
 
 
     return 0;
