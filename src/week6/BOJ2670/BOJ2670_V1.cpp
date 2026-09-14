@@ -25,7 +25,6 @@ int main() {
         ret = max(cur, ret);
     }
 
-//    printf("%.3lf", ret + 0.00001);
     cout << fixed << setprecision(3) << ret << '\n';
     return 0;
 }
