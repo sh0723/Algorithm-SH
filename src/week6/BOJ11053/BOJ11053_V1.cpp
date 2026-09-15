@@ -21,7 +21,7 @@ int main() {
         }
     }
 
-    cout << lis.size();
+    cout << lis.size() << '\n';
 
 
     return 0;
