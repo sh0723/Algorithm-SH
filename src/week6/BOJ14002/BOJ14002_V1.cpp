@@ -39,10 +39,14 @@ int main() {
         idx = _prev[idx];
     }
 
+    bool first = true;
     while(stk.size()) {
-        cout << stk.top() << ' ';
+        if (!first) cout << ' ';
+        cout << stk.top();
+        first = false;
         stk.pop();
     }
+    cout << '\n';
 
 
     return 0;
