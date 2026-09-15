@@ -30,7 +30,7 @@ int main() {
         }
     }
 
-    cout << N-lis.size();
+    cout << N-lis.size() << '\n';
 
     return 0;
 }
