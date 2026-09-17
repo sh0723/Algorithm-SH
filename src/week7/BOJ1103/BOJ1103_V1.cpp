@@ -58,11 +58,11 @@ int main() {
     int ret = dfs(0,0);
 
     if (cycle) {
-        cout << -1;
+        cout << -1 << '\n';
         return 0;
     }
 
-    cout << ret;
+    cout << ret << '\n';
 
     return 0;
 }
