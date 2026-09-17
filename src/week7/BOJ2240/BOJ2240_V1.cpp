@@ -29,7 +29,7 @@ int main() {
 
     int ret = max(solve(0,0,W),solve(0, 1, W-1));
 
-    cout << ret;
+    cout << ret << '\n';
 
     return 0;
 }
