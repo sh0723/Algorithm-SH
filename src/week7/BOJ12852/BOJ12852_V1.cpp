@@ -32,6 +32,7 @@ int main() {
 
     cout << dp[n] << '\n';
     solve(n);
+    cout << '\n';
 
 
     return 0;
