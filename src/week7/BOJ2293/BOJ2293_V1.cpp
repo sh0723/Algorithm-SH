@@ -22,7 +22,7 @@ int main() {
         }
     }
 
-    cout << dp[K];
+    cout << dp[K] << '\n';
 
     return 0;
 }
