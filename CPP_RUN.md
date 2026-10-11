@@ -7,7 +7,7 @@
 프로젝트 루트에서 아래 명령을 실행한다.
 
 ```bash
-g++-15 -std=c++17 src/example_code/dopa_string.cpp -o dopa_string
+g++-15 -std=c++17 src/ETC/example_code/dopa_string.cpp -o dopa_string
 ./dopa_string
 ```
 
@@ -20,9 +20,9 @@ g++-15 -std=c++17 path/to/file.cpp -o 실행파일이름
 ./실행파일이름
 ```
 
-예를 들어 `src/example_code/test.cpp`를 실행하려면:
+예를 들어 `src/ETC/example_code/test.cpp`를 실행하려면:
 
 ```bash
-g++-15 -std=c++17 src/example_code/test.cpp -o test
+g++-15 -std=c++17 src/ETC/example_code/test.cpp -o test
 ./test
 ```
