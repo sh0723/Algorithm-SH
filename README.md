@@ -3,5 +3,5 @@
 
 # Linked Blog
 <l>https://velog.io/@sh0723/series/PS
-/n
-<l>hhttps://sh0723.tistory.com/
+
+<l>https://sh0723.tistory.com/
