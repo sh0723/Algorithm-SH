@@ -23,6 +23,14 @@ int main() {
     for (int i=0; i<2; i++) {
         int len = inp[i].size();
         int cur = 0, next = 0;
+        if (len == 1) {
+            for (int k=0; k<7; k++) {
+                if (inp[i][0] == rome_num[k].first) {
+                    inp_num[i] = rome_num[k].second;
+                }
+            }
+            continue;
+        }
         for (int j=0; j<len-1; j++) {
             for (int k=0; k<7; k++) {
                 if (inp[i][j] == rome_num[k].first) {
