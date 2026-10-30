@@ -1,69 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
 
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.tie(nullptr);
 
-    string org,aft;
-
+    string org, aft;
     cin >> org >> aft;
 
-    if (org == aft) {
-        cout << 0;
-        return 0;
-    }
-    if (org.find(aft) != string::npos) {
-        cout << 0;
-        return 0;
-    }
-    if (aft.find(org) != string :: npos) {
-        cout << aft.size() - org.size();
-        return 0;
-    }
-    
     int org_len = org.size();
     int aft_len = aft.size();
-    int diff_first=0, diff_last=aft_len-1;
 
-    int org_idx=0, aft_idx=0;
-    while(true){
-        if (org_idx >= org_len || aft_idx >= aft_len) {
-            diff_first = aft_idx-1;
-            break;
-        }
+    // 앞에서부터 일치하는 구간을 제외
+    int diff_first = 0;
+    while (diff_first < org_len &&
+           diff_first < aft_len &&
+           org[diff_first] == aft[diff_first]) {
+        diff_first++;
+           }
 
-        if (org[org_idx] != aft[aft_idx]) {
-            diff_first = aft_idx;
-            break;
-        }
+    int org_idx = org_len - 1;
+    int aft_idx = aft_len - 1;
 
-        org_idx++;
-        aft_idx++;
-    }
-
-    org_idx = org_len-1;
-    aft_idx = aft_len-1;
-    while(true){
-        if (org_idx < 0 || aft_idx < 0) {
-            diff_last = aft_idx+1;
-            break;
-        }
-
-        if (org[org_idx] != aft[aft_idx]) {
-            diff_last = aft_idx;
-            break;
-        }
-
+    // 앞에서 제외한 구간과 겹치지 않는 범위에서 뒤쪽 비교
+    while (org_idx >= diff_first &&
+           aft_idx >= diff_first &&
+           org[org_idx] == aft[aft_idx]) {
         org_idx--;
         aft_idx--;
-    }
+           }
 
-
-    if (diff_last < diff_first) cout << 0;
-    else cout << diff_last - diff_first + 1;
-
+    // 감염 후 문자열에서 남은 가운데 구간의 길이
+    cout << aft_idx - diff_first + 1;
 
     return 0;
 }
